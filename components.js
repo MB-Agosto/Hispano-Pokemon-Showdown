@@ -62,6 +62,8 @@ var components = exports.components = {
         );
     },
 
+
+	comprar: 'buy'
     buy: function (target, room, user) {
         if (!target) this.parse('/help buy');
         var userMoney = Number(Core.stdin('money', user.userid));
@@ -84,6 +86,7 @@ var components = exports.components = {
         }
     },
 
+	donar: 'transfermoney'
 	transferbuck: 'transfermoney',
     transferbucks: 'transfermoney',
     transfermoney: function (target, room, user) {
@@ -263,6 +266,7 @@ var components = exports.components = {
     ocupado: 'afk',
 	ausente: 'afk',
 	away: 'afk',
+	poshonub: 'afk'
 	afk: function(target, room, user, connection, cmd) {
 		if (!this.canTalk) return false;
 		var t = 'Away';
@@ -275,10 +279,15 @@ var components = exports.components = {
 			t = 'Осυраԁо';
 			s = 'Ocupado'
 			break;
+			case 'poshonub'
+			t = 'Poѕhоɴub'
+			s = ''
+			break;
 			default:
 			t = 'Аυѕеɴте'
 			s = 'Ausente'
 			break;
+			
 		}
 
 		if (!user.isAway) {
